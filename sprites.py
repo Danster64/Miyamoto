@@ -4864,7 +4864,10 @@ class SpriteImage_LavaGeyser(SLib.SpriteImage_StaticMultiple):  # 207
         size = self.parent.spritedata[4] >> 4; size = 0 if size > 6 else size
         self.image = ImageCache['LavaGeyser%d' % size]
         self.yOffset = -160
-        
+        startsOn = self.parent.spritedata[5] & 1
+
+        self.alpha = 0.75 if startsOn else 0.5
+		
         if size == 1:
             self.yOffset = -152
 
